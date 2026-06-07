@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+*.local
+pb_data/
+pocketbase
+pocketbase.exe

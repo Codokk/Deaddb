@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\Users\\\\cmkrist\\\\Documents\\\\Deaddb\" /a /b)"
+    ]
+  }
+}

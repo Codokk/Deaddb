@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-surface text-white;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased min-h-screen;
+    background-color: #0d0d14;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+           bg-brand-purple hover:bg-brand-glow text-white transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-brand-violet focus:ring-offset-2 focus:ring-offset-surface;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+           bg-surface-hover border border-surface-border text-gray-300 hover:text-white
+           hover:border-brand-purple transition-all duration-150
+           focus:outline-none focus:ring-2 focus:ring-brand-violet focus:ring-offset-2 focus:ring-offset-surface;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400
+           hover:text-white hover:bg-surface-hover transition-all duration-150;
+  }
+
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-xl p-5 transition-all duration-200
+           hover:border-brand-purple/40 hover:shadow-lg hover:shadow-brand-glow/10;
+  }
+
+  .input-field {
+    @apply w-full bg-surface-hover border border-surface-border rounded-lg px-4 py-2.5
+           text-white placeholder-gray-500 text-sm
+           focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple
+           transition-colors duration-150;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium;
+  }
+
+  .badge-purple {
+    @apply badge bg-brand-purple/20 text-brand-violet border border-brand-purple/30;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+
+  .badge-pink {
+    @apply badge bg-brand-pink/20 text-pink-300 border border-brand-pink/30;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-purple via-brand-violet to-brand-pink bg-clip-text text-transparent;
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px theme('colors.brand.glow' / 30%);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.surface.border') transparent;
+  }
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e30;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a40;
+}
+
+/* Modal backdrop */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.2s ease;
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-content-enter-active,
+.modal-content-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.modal-content-enter-from,
+.modal-content-leave-to {
+  transform: scale(0.95) translateY(-8px);
+  opacity: 0;
+}

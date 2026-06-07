@@ -1,0 +1,21 @@
+/*
+  NOTE: DO NOT FORGET TO UPDATE THIS WHEN WE UPDATE THE SCHEMA
+*/
+[
+  {
+    "name": "songs",
+    "type": "base",
+    "fields": [
+      { "name": "name",        "type": "text",     "required": true },
+      { "name": "bpm",         "type": "number",   "required": true },
+      { "name": "lag",         "type": "number",   "required": false },
+      { "name": "youtube_url", "type": "url",      "required": true },
+      { "name": "user",        "type": "relation", "required": false, "options": { "collectionId": "_pb_users_auth_", "cascadeDelete": false } }
+    ],
+    "listRule":   "",
+    "viewRule":   "",
+    "createRule": "@request.auth.id != ''",
+    "updateRule": "@request.auth.id = user.id",
+    "deleteRule": "@request.auth.id = user.id"
+  }
+]
